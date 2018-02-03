@@ -1,0 +1,9 @@
+name: crypt
+version: 0.1.0
+
+authors:
+  - Jens <jens0512@osloskolen.no>
+
+crystal: 0.23.1
+
+license: MIT

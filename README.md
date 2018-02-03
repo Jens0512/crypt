@@ -9,7 +9,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   crypt:
-    github: [your-github-name]/crypt
+    github: Jens0512/crypt
 ```
 
 ## Usage
@@ -34,4 +34,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Jens - creator, maintainer
+- [Jens0512](https://github.com/Jens0512) Jens - creator, maintainer

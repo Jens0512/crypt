@@ -1,6 +1,6 @@
 # crypt
 
-TODO: Write a description here
+This is a amateur WIP, made for fun, and is not of good quality, but most of what is here works like it should.
 
 ## Installation
 

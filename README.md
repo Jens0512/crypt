@@ -32,6 +32,7 @@ Simple substitution-ciphers
 cipher = Ciphers.substitution(Alphabet.new("1234"), Alphabet.new("4321"))
 cipher.encrypt "12345" # => "43215"
 cipher.decrypt "400" # => "100"
+``` 
 
 ## Contributing
 

@@ -1,31 +1,41 @@
-class SubstitutionCipher
-	def initialize (@alpha : Alphabet, @beta : Alphabet)
-		unless (@alpha.length == @beta.length)
-			raise "The two alphabets in a substitution cipher must be the same length" 
-		end
-	end
+module Crypt
+  class SubstitutionCipher    
+    property alpha, beta
+    def initialize (@alpha : Alphabet, @beta : Alphabet, enforce_length? : Bool = true)
+      if (@alpha.length != @beta.length) && enforce_length?
+        raise "The two alphabets in a substitution cipher must be the same length" 
+      end
+    end
 
-	def encrypt(string)
-		encrypted = ""
-		string.to_s.upcase.chars.each do |c|
-			unless @alpha.contains? c
-				encrypted += c
-				next
-			end
-			encrypted += @beta[@alpha[c].index].char
-		end
-		encrypted
-	end
+    def encrypt(string : String, keep_case? : Bool = true, cut_unknown? : Bool = false, cut_whitespace? : Bool = false)
+      shift string, true, keep_case?, cut_unknown?, cut_whitespace?
+    end
 
-	def decrypt(string)
-		decrypted = ""
-		string.to_s.upcase.chars.each do |c|
-			unless @alpha.contains? c
-				decrypted += c
-				next
-			end
-			decrypted += @alpha[@beta[c].index].char
-		end
-		decrypted
-	end
+    def decrypt(string : String, keep_case? : Bool = true, cut_unknown? : Bool = false, cut_whitespace? : Bool = false)
+      shift string, false, keep_case?, cut_unknown?, cut_whitespace?
+    end
+
+    private def shift(string, direction, keep_case?, cut_unknown?, cut_whitespace?)      
+      shifted = [] of Char
+      string.to_s.chars.each do |c|
+        upcased? = (c.upcase == c) if keep_case?
+        c = c.upcase
+        unless (@alpha.contains?(c) || @alpha.contains? c.downcase)
+          shifted << c if (c.whitespace?  && !cut_whitespace?) || (!c.whitespace? && !cut_unknown?)          
+          next
+        end
+        char = direction ? 
+          ((@beta [@alpha[c].index]?) || c)
+           : 
+          ((@alpha[@beta [c].index]?) || c)
+        char = char.to_c unless char.is_a? Char
+        if keep_case?
+          shifted << (upcased? ? char.upcase : char.downcase) 
+        else
+          shifted << char.upcase
+        end
+      end
+      shifted.join("")
+    end
+  end
 end

@@ -1,7 +1,11 @@
 module Crypt
-  class SubstitutionCipher    
+  class SubstitutionCipher
     property alpha, beta
-    def initialize (@alpha : Alphabet, @beta : Alphabet, enforce_length? : Bool = true)
+    def initialize(alpha : String, beta : String, enforce_length? : Bool = true)
+      new(Alphabet.new(alpha), Alphabet.new(beta), enforce_length?)  
+    end
+    
+    def initialize(@alpha : Alphabet, @beta : Alphabet, enforce_length? : Bool = true)
       if (@alpha.length != @beta.length) && enforce_length?
         raise "The two alphabets in a substitution cipher must be the same length" 
       end

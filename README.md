@@ -29,7 +29,7 @@ rot3.encrypt "This, is, weak!", cut_unknown?: true # => "Wklv lv zhdn"
 
 Simple substitution-ciphers
 ```crystal
-cipher = Ciphers.substitution(Alphabet.new("1234"), Alphabet.new("4321"))
+cipher = Ciphers.substitution("1234", "4321")
 cipher.encrypt "12345" # => "43215"
 cipher.decrypt "400" # => "100"
 ``` 

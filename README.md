@@ -42,6 +42,7 @@ cipher.decrypt "400" # => "100"
 ``` 
 
 ## Contributing
+Help wanted! See: #1
 
 1. Fork it ( https://github.com/[your-github-name]/crypt/fork )
 2. Create your feature branch (git checkout -b my-new-feature)

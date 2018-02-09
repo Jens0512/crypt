@@ -1,7 +1,14 @@
 # crypt
 
-This is a amateur WIP, made for fun, and is not of good quality, but most of what is here works like it should.
-Currently the only avaible ciphers are simple substitution-ciphers
+This is a amateur WIP, made for fun, and is not of good quality.
+
+Crypt is a crystal-library for encrypting and decrypting cipers.
+
+Most of what is here works like it should, apart for some problems with casing in alphabet chars, this is easily avoided by using only uppercased chars, but im working on fixing the bufg, the bug causes case-sensitive ciphers like the dvorak-substitution-cipher to not work properly.
+
+I have no expertise in ciphers, so **any** constructive feedback is very much welcome, even just a simple explanation of expexted behaviour.
+
+Currently the only avaible ciphers are simple substitution-ciphers, and the tabula recta.
 ## Installation
 
 Add this to your application's `shard.yml`:

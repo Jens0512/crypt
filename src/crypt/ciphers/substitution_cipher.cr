@@ -1,45 +1,143 @@
 module Crypt
-  class SubstitutionCipher
-    property alpha, beta
-    def initialize(alpha : String, beta : String, enforce_length? : Bool = true)
-      new(Alphabet.new(alpha), Alphabet.new(beta), enforce_length?)  
-    end
+  module Ciphers
+    class SubstitutionCipher < Cipher
+      getter alpha, beta
     
-    def initialize(@alpha : Alphabet, @beta : Alphabet, enforce_length? : Bool = true)
-      if (@alpha.length != @beta.length) && enforce_length?
-        raise "The two alphabets in a substitution cipher must be the same length" 
+      getter? cut_whitespace  = false
+      getter? cut_unknown     = false
+
+      protected setter cut_whitespace, cut_unknown
+      def initialize(alpha : String, beta : String, **opts)
+        initialize Alphabet.new(alpha, **opts), Alphabet.new(beta, **opts)
       end
-    end
 
-    def encrypt(string : String, keep_case? : Bool = true, cut_unknown? : Bool = false, cut_whitespace? : Bool = false)
-      shift string, true, keep_case?, cut_unknown?, cut_whitespace?
-    end
-
-    def decrypt(string : String, keep_case? : Bool = true, cut_unknown? : Bool = false, cut_whitespace? : Bool = false)
-      shift string, false, keep_case?, cut_unknown?, cut_whitespace?
-    end
-
-    private def shift(string, direction, keep_case?, cut_unknown?, cut_whitespace?)      
-      shifted = [] of Char
-      string.to_s.chars.each do |c|
-        upcased? = (c.upcase == c) if keep_case?
-        c = c.upcase
-        unless (@alpha.contains?(c) || @alpha.contains? c.downcase)
-          shifted << c if (c.whitespace?  && !cut_whitespace?) || (!c.whitespace? && !cut_unknown?)          
-          next
+      def initialize(@alpha : Alphabet, @beta : Alphabet)
+        if (@alpha.size != @beta.size)
+          raise "The two alphabets in a substitution cipher must be the same length"
         end
-        char = direction ? 
-          ((@beta [@alpha[c].index]?) || c)
-           : 
-          ((@alpha[@beta [c].index]?) || c)
-        char = char.to_c unless char.is_a? Char
-        if keep_case?
-          shifted << (upcased? ? char.upcase : char.downcase) 
+      end
+
+      def encrypt(string, *args)
+        substitute string, true,  *args
+      end
+
+      def decrypt(string, *args)
+        substitute string, false, *args
+      end
+
+      def known?(char : Char, direction : Bool)
+        return (direction ? (@alpha.includes? char) : (@beta.includes? char))
+      end
+
+      private def subst(char : Char, direction : Bool = true)
+        return (direction ? @beta[@alpha[char].index] : @alpha[@beta[char].index]).to_c
+      end
+
+      private def subst_part(prev_char, current_char, next_char, direction)
+        case
+        when prev_char && !prev_char.whitespace?
+          return subst(current_char, direction)
+        when next_char.is_a?(Char) && !next_char.whitespace?
+          return subst(current_char, direction)
+        when current_char
+          return subst(current_char, direction)
         else
-          shifted << char.upcase
+          nil
         end
       end
-      shifted.join("")
-    end
+
+      private def substitute(string, direction : Bool, *args)
+        keep_case? = !(args.includes? :no_keep_case)
+        upcase? = args.includes? :upcase
+
+        if !keep_case? && upcase?
+          raise "You must not provide both the `:no_keep_case` and the `:upcase` flag, as that is paradoxal and would not work"
+        end
+
+        itr  = string.to_s.each_char
+        itr_nxt = string.to_s.each_char.skip 1
+
+        result  = [] of Char
+
+        until (char = itr.next).is_a? Iterator::Stop
+          uppercase? = char.uppercase?          
+          next_char = itr_nxt.next
+
+          case 
+          when known?(char, direction)
+            substituted = subst_part(result.last?, char, next_char, direction)
+          when cut_whitespace? && char.whitespace?
+            next
+          when cut_unknown? && !char.whitespace?
+            next            
+          when char.whitespace? && next_char.is_a?(Char) && next_char.whitespace? && cut_whitespace?
+            next
+          when !known?(char, direction) && next_char.is_a?(Char) && !known?(next_char, direction) && cut_unknown?
+            next
+          else
+            substituted = char
+          end
+
+          if substituted
+            case 
+            when upcase?
+              result << substituted.upcase
+            when keep_case?
+              result << (uppercase? ? substituted.upcase : substituted.downcase)            
+            else
+              result << substituted
+            end
+          end
+        end
+
+        result.join
+      end
+
+      def transform(cut_whitespace? : Bool = @cut_whitespace, \
+                    cut_unknown?    : Bool = @cut_unknown)
+
+        return itself.dup if (cut_whitespace? == @cut_whitespace) && (cut_unknown? == @cut_unknown)
+        
+        # Create a duplicate of this cipher
+        transformed                 = itself.dup
+
+        # And apply the new config to it
+        transformed.cut_whitespace  = cut_whitespace?
+        transformed.cut_unknown     = cut_unknown?
+        
+        return transformed
+      end
+
+      def reverse
+        reversed = new @beta, @alpha
+        reversed.transform(
+          cut_whitespace?: @cut_whitespace,
+          cut_unknown?:    @cut_unknown
+        )
+      end
+
+      def to_s(io : IO)
+        io << "⦕#{@alpha}←ψ→#{@beta}⦖"
+      end
+
+      def to_hr_s
+        to_hrs(IO::Memory.new).to_s
+      end
+
+      # :nodoc:
+      def to_hr_s(io : IO)
+        io << "SubstitutionCipher:33\n"
+        io << "\tAlpha: #{@aalpha }\n"
+        io << "\tBeta : #{@beta  }"
+      end
+
+      def inspect(io : IO)
+        io << "#<Crypt::SubstitutionCipher⦕#{@alpha}←ψ→#{@beta}⦖>"
+      end
+
+      def case_sensitive?
+        @alpha.case_sensitive?||@beta.case_sensitive?
+      end
+    end  
   end
 end

@@ -1,125 +1,74 @@
-require "./letter"
+require "./alphabet/*"
 
 module Crypt
+  # An alphabet does not neccesarily have to be the 
+  # roman "abc...xyz" alphabet, but can be any length of chars.
+  # Used in the ciphers here for just about everything
   struct Alphabet
-    class_property default = ROMAN
+    include Enumerable(AlphabetLetter)
+    
+    # Used in the `Ciphers`-module
+    # Change to whatever you'd like
+    class_property default : Alphabet = ROMAN
 
     include Indexable(Int32 | Char)
-
-    def [](index : Char)      
-      if letter = get_letter(index)
-        letter
-      else
-        raise IndexError.new ("Alphabet does not contain #{index}")
-      end
-    end
-
-    def [](index : Int)
-      if index == 0
-        raise IndexError.new("The first index is of 1, so 0 cannot be used") 
-      end      
-
-      @letters[(index >= 1 ) ? (index - 1) : index]
-    end
-
-    def []?(index : Char | Int)
-      begin
-        return itself[index]
-      rescue e : IndexError
-        return nil
-      end
-    end
-
-    def == (other : Alphabet)
-      (join "") == other.to_s
-    end
-
-    private def get_letter(char : Char)
-      each do |letter|
-        return letter if (letter == char)
-      end
-      nil
-    end
-
-    def each(&block)
-      @letters.each do |letter|
-        yield letter
-      end
-    end
-
-    def length
-      @letters.size
-    end
-
-    def to_s(io : IO)
-      io << join ""
-    end
-
-    def join(delimeter : String)
-      @letters.join delimeter
-    end  
-
-    def contains?(char : Char)
-      @letters.each { |letter| return true if letter == char}
-
-      false
-    end
 
     @letters : Array(AlphabetLetter)
 
     protected def letters; @letters; end
+        
+    getter? case_sensitive = false
 
-    def initialize(letters : String, upcase? : Bool = true, final? : Bool = false)
-      initialize letters.chars, upcase?, final?
+    # Creates an alphabet with the characters of letters
+    # 
+    # 
+    # ```
+    # Alphabet.new "hello fish" # => #<Crypt::Alphabet:"HELLO FISH">
+    # Alphabet.new "Hello Fish", case_sensitive?: true # => #<Crypt::Alphabet:"hello fish">
+    # ```
+    def initialize(letters : String, *, case_sensitive? : Bool = false, final? : Bool = false)
+      initialize letters.chars, case_sensitive?: case_sensitive?, final?: final?
     end
 
-    def initialize(letters : Array(Char), upcase? : Bool = true, final? : Bool = false)
+    # Same as `Alphabet.initialize(letters : String)
+    def initialize(letters : Array(Char), *, case_sensitive? : Bool = false, final? : Bool = false)
+      @case_sensitive = case_sensitive?
       @final = final?
-      @letters = Array(AlphabetLetter).new
+
+      @letters = [] of AlphabetLetter
+
       i = 1
       letters.each do |letter|
-        @letters << AlphabetLetter.new((upcase? ? letter.upcase : letter), i)
+        @letters << AlphabetLetter.new((case_sensitive? ? letter : letter.upcase), i, itself)
         i += 1
-      end      
+      end
     end
 
-    def shift(shift : Int)
-      Alphabet.shift(self, shift)
+    # Passes alpha.to_s and **opts to `Alphabet.new(letters: String, *)`
+    def initialize(alpha : Alphabet, **opts)
+      initialize alpha.to_s, **opts
     end
 
-    def self.shift(shift : Int)
-      self.shift(default, shift)
-    end
-
-    def self.shift(initial : Alphabet, shift : Int) : Alphabet
+    # Returns an alphabet that is a shift by `shift` of `initial`
+    # 
+    # `opts` are passed to the initialization of the shifted alphabet,
+    # the new alphabet has by default the same case sensitivity as the initial alphabet
+    def self.shift(initial : Alphabet, shift : Int, case_sensitive? : Bool = initial.case_sensitive?, **opts) : Alphabet
       return initial if shift == 0
-  		shift %= initial.length
-      shifted = ""  		    
-
-      initial.each do |letter|        
+      shift %= initial.size
+      shifted = [] of Char
+ 
+      initial.each do |letter|
         ordinal = letter.index + shift
-
-        if (ordinal.abs > initial.length)
-          ordinal %= initial.length 
+ 
+        if (ordinal.abs > initial.size)
+          ordinal %= initial.size 
         end
-
-        shifted += initial[ordinal].to_c
+ 
+        shifted << initial[ordinal].to_c
       end
-
-      Alphabet.new shifted
-    end
-
-    def shift!(*args)      
-      @letters = shift(*args).letters unless @final
-      itself
-    end
-
-    private struct AlphabetLetter < SymbolBase
-      property! index
-
-      def initialize(char : Char, @index : Int32)
-        super(char)
-      end
+ 
+      new shifted.join, **opts, case_sensitive?: case_sensitive?
     end
   end
 end

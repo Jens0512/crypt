@@ -2,14 +2,14 @@ require "./alphabet/*"
 
 module Crypt
   # An alphabet does not neccesarily have to be the 
-  # roman "abc...xyz" alphabet, but can be any length of chars.
+  # latin "abc...xyz" alphabet, but can be any length of chars.
   # Used in the ciphers here for just about everything
   class Alphabet
     include Enumerable(AlphabetLetter)
     
     # Used in the `Ciphers`-module
     # Change to whatever you'd like
-    class_property default : Alphabet = ROMAN
+    class_property default : Alphabet = LATIN
 
     include Indexable(Int32 | Char)
 

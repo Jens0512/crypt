@@ -11,12 +11,12 @@ describe Ciphers do
   end
 
   describe "caesar" do
-    it "returns a roman caesar-shifted `SubstitutionCipher`" do
+    it "returns a latin caesar-shifted `SubstitutionCipher`" do
       rot3 = Ciphers.caesar 3
       rot3.should be_a SubstitutionCipher
 
-      rot3.alpha.should eq ROMAN
-      rot3.beta.should  eq ROMAN.shift 3
+      rot3.alpha.should eq LATIN
+      rot3.beta.should  eq LATIN.shift 3
 
       rot3.encrypt("1234").should eq "1234"
     end

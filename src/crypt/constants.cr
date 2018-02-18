@@ -2,8 +2,8 @@ module Crypt
   module Constants
     extend self
 
-    # The roman alphabet, the same as the english
-    ROMAN = Alphabet.new "ABCDEFGHIJKLMNOPQRSTUVWXYZ", final?: true
+    # The latin alphabet, the same as the english
+    LATIN = Alphabet.new "ABCDEFGHIJKLMNOPQRSTUVWXYZ", final?: true
 
     # The chars for the standard western keyboard layout *Qwerty*
     QWERTY = Alphabet.new "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?", final?: true, case_sensitive?: true

@@ -1,14 +1,14 @@
 describe SubstitutionCipher do
   describe "#new" do
     # `Ciphers.substitution` is a helper to SubstitutionCipher.new
-    cipher = Ciphers.substitution(ROMAN, ROMAN.shift -3)
-    cipher.alpha.should eq ROMAN
-    cipher.beta.should  eq ROMAN.shift -3
+    cipher = Ciphers.substitution(LATIN, LATIN.shift -3)
+    cipher.alpha.should eq LATIN
+    cipher.beta.should  eq LATIN.shift -3
   end
 
   describe "#encrypt" do
     it "encrypts a string" do
-      # Shortcut to `SubstitutionCipher.new(ROMAN, ROMAN.shift 11)`
+      # Shortcut to `SubstitutionCipher.new(LATIN, LATIN.shift 11)`
       cipher = Ciphers.caesar 11
 
       cipher.encrypt("Hello").should eq "Spwwz"
@@ -72,7 +72,7 @@ describe SubstitutionCipher do
 
   describe "#decrypt" do
     it "encrypts a string" do
-      # Shortcut to `SubstitutionCipher.new(ROMAN, ROMAN.shift 10)`
+      # Shortcut to `SubstitutionCipher.new(LATIN, LATIN.shift 10)`
       cipher = Ciphers.caesar 11
 
       cipher.decrypt("Spwwz").should eq "Hello"

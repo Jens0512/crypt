@@ -3,7 +3,7 @@ require "./crypt/*"
 module Crypt
   include Ciphers
 
-  include Constants
+  include Constants  
 
   extend self
 
@@ -14,9 +14,8 @@ module Crypt
   # :nodoc:
   def bug_found! (line = __LINE__, file = __FILE__)
     STDERR.puts <<-BUG_FOUND
-    
     You have found a bug in the Crypt library!
-    Caught in #{file}:#{line}    
+    Caught in #{file}:#{line}
     Please open an issue in #{GITHUB_LINK}
     with reproducable problem and minimal code.
     BUG_FOUND

@@ -1,5 +1,5 @@
 module Crypt
-  struct Alphabet        
+  class Alphabet
     # Yields each `Crypt::AlphabetLetter` in the alphabet
     def each(&block)
       @letters.each do |letter|

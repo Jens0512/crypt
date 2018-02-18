@@ -59,7 +59,7 @@ module Crypt
     delegate uppercase?, to: @char
   end
 
-  struct Alphabet
+  class Alphabet
     # :nodoc:
     struct Letter < SymbolBase; end
 

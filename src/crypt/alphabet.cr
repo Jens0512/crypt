@@ -4,7 +4,7 @@ module Crypt
   # An alphabet does not neccesarily have to be the 
   # roman "abc...xyz" alphabet, but can be any length of chars.
   # Used in the ciphers here for just about everything
-  struct Alphabet
+  class Alphabet
     include Enumerable(AlphabetLetter)
     
     # Used in the `Ciphers`-module

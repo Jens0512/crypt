@@ -3,7 +3,7 @@ describe SubstitutionCipher do
     # `Ciphers.substitution` is a helper to SubstitutionCipher.new
     cipher = Ciphers.substitution(ROMAN, ROMAN.shift -3)
     cipher.alpha.should eq ROMAN
-    cipher.beta.should eq ROMAN.shift -3
+    cipher.beta.should  eq ROMAN.shift -3
   end
 
   describe "#encrypt" do
@@ -12,7 +12,7 @@ describe SubstitutionCipher do
       cipher = Ciphers.caesar 11
 
       cipher.encrypt("Hello").should eq "Spwwz"
-      cipher.encrypt("lol").should eq "wzw"
+      cipher.encrypt("lol").should   eq "wzw"
     end
 
     it "encrypts a char" do
@@ -21,12 +21,18 @@ describe SubstitutionCipher do
       ROT3.encrypt('C').should eq "F"
     end
 
+    it "tries to handle whitespace and unknown symbols in a logical way" do
+       rot3 = Ciphers.caesar 3
+       rot3 = rot3.transform cut_unknown?: true
+      rot3.decrypt(rot3.encrypt "Th51.12_is12431, iº¬˘¯∑s, _we∘⍺⌈’∆?ak!").should eq "This is weak"
+    end
+
     describe "takes symbol varargs" do
       it "takes an `:upcase` flag, which upcases everything" do      
         # The classic
         cipher = Ciphers.caesar 3 # == ROT3 # => true
         cipher.encrypt("Veni vidi vici", :upcase).should eq "YHQL YLGL YLFL"
-        cipher.encrypt("Veni vidi vici").should eq "Yhql ylgl ylfl"
+        cipher.encrypt("Veni vidi vici").should          eq "Yhql ylgl ylfl"
       end
     end
 
@@ -41,12 +47,12 @@ describe SubstitutionCipher do
   describe "#transform" do
     it "takes an argument specifying whether to cut unknown chars or not" do
       # Encryption
-      ROT3.transform(cut_unknown?: true).encrypt("Hello Bob, nr. 123").should eq "Khoor Ere qu"
+      ROT3.transform(cut_unknown?: true).encrypt("Hello Bob, nr. 123").should  eq "Khoor Ere qu"
       ROT3.transform(cut_unknown?: false).encrypt("Hello Bob, nr. 123").should eq "Khoor Ere, qu. 123"
 
       # Decryption
-      ROT3.transform(cut_unknown?: true).decrypt( "Khoor Ere, qu. 123").should  eq "Hello Bob nr"
-      ROT3.transform(cut_unknown?: false).decrypt("Khoor Ere, qu. 123").should  eq "Hello Bob, nr. 123"
+      ROT3.transform(cut_unknown?: true).decrypt( "Khoor Ere, qu. 123").should eq "Hello Bob nr"
+      ROT3.transform(cut_unknown?: false).decrypt("Khoor Ere, qu. 123").should eq "Hello Bob, nr. 123"
     end
 
     it "takes an argument specifying whether to keep whitespace or not" do
@@ -70,7 +76,7 @@ describe SubstitutionCipher do
       cipher = Ciphers.caesar 11
 
       cipher.decrypt("Spwwz").should eq "Hello"
-      cipher.decrypt("wzw").should eq "lol"      
+      cipher.decrypt("wzw").should   eq "lol"      
     end
 
     it "encrypts a char" do

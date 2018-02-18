@@ -1,5 +1,5 @@
 module Crypt
-  struct Alphabet
+  class Alphabet
     def [](index : Char | Int, upcase? : Bool? = nil)
       if index.is_a? Char
         if letter = get_letter(index)

@@ -1,4 +1,5 @@
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://jens0512.github.io/crypt/)
+[![Build Status](https://travis-ci.org/Jens0512/crypt.svg?branch=master)](https://travis-ci.org/Jens0512/crypt)
 
 # crypt
 

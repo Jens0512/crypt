@@ -1,3 +1,5 @@
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://jens0512.github.io/crypt/)
+
 # crypt
 
 This is a amateur WIP, made for fun, and is not of good quality.

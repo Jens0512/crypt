@@ -30,10 +30,10 @@ require "crypt"
 
 Simple caesar ciphers
 ```crystal
-rot3 = Ciphers.caesar 3
+rot3 = Ciphers.caesar 3, cut_unknown?: true
 encrypted = rot3.encrypt "This, is, weak!" # => "Wklv, lv, zhdn!"
 rot3.decrypt encrypted # => "This, is, weak!"
-rot3.encrypt "This, is, weak!", cut_unknown?: true # => "Wklv lv zhdn"
+rot3.encrypt "This, is, weak!" # => "Wklv lv zhdn"
 ```
 
 Simple substitution-ciphers

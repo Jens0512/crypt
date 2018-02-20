@@ -11,13 +11,13 @@ module Crypt
     end
 
     # Exactly the same as `Ciphers#caesar`, but without default shift
-    def rot(shift : Int, alpha = Alphabet.default)
-      caesar(shift, alpha)
+    def rot(shift : Int, alpha = Alphabet.default, **opts)
+      caesar(shift, alpha, **opts)
     end
 
     # Same as `substitution(alphabet, alphabet.shift(shift))`    
-    def caesar(shift : Int = 3, alpha : Alphabet = Alphabet.default)
-      substitution(alpha, alpha.shift(shift))
+    def caesar(shift : Int = 3, alpha : Alphabet = Alphabet.default, **opts)
+      substitution(alpha, alpha.shift(shift), **opts)
     end
 
     # Creates a deranged alphabet where `key` is inserted to the alphabet

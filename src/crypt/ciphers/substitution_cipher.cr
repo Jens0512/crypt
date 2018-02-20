@@ -7,11 +7,14 @@ module Crypt::Ciphers
 
     protected setter cut_whitespace, cut_unknown
 
-    def initialize(alpha, beta, **opts)
-      initialize Alphabet.new(alpha.to_s, **opts), Alphabet.new(beta.to_s, **opts)
+    def initialize(alpha, beta, cut_whitespace? : Bool = false, cut_unknown? : Bool = false, **opts)
+      initialize Alphabet.new(alpha.to_s, **opts), Alphabet.new(beta.to_s, **opts), cut_whitespace?, cut_unknown?
     end
 
-    def initialize(@alpha : Alphabet, @beta : Alphabet)
+    def initialize(@alpha : Alphabet, @beta : Alphabet, cut_whitespace? : Bool = false, cut_unknown? : Bool = false)
+      itself.cut_whitespace = cut_whitespace?
+      itself.cut_unknown    = cut_unknown?
+
       if (@alpha.size != @beta.size)
         raise "The two alphabets in a substitution cipher must be the same length"
       end

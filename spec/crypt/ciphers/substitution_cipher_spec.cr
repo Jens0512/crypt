@@ -14,7 +14,7 @@ describe SubstitutionCipher do
       cipher.encrypt("Hello").should eq "Spwwz"
       cipher.encrypt("lol").should   eq "wzw"
 
-      it "it cuts chars in between two cut chars" do
+      pending "it cuts chars in between two cut chars" do
         ROT3.transform(cut_unknown?: true).encrypt("Hello Bob, nr. 123").should  eq "Khoor Ere qu"        
       end
     end
@@ -75,7 +75,7 @@ describe SubstitutionCipher do
       cipher.decrypt("Spwwz").should eq "Hello"
       cipher.decrypt("wzw").should   eq "lol"
 
-      it "it cuts chars in between two cut chars" do
+      pending "it cuts chars in between two cut chars" do
         ROT3.transform(cut_unknown?: true).decrypt( "Khoor Ere, qu. 123").should eq "Hello Bob nr"
       end
     end

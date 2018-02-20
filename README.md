@@ -26,7 +26,6 @@ dependencies:
 
 ```crystal
 require "crypt"
-include Crypt
 ```
 
 Simple caesar ciphers

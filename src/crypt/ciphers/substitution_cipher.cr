@@ -20,12 +20,12 @@ module Crypt::Ciphers
       end
     end
 
-    def encrypt(string, *args)
-      substitute string, true,  *args
+    def encrypt(io : IO, string, *args)
+      substitute io, string, true,  *args
     end
 
-    def decrypt(string, *args)
-      substitute string, false, *args
+    def decrypt(io : IO, string, *args)
+      substitute io, string, false, *args
     end
 
     def known?(char : Char?, direction : Bool)
@@ -57,7 +57,7 @@ module Crypt::Ciphers
       end
     end
 
-    private def substitute(string, direction : Bool, *args)
+    private def substitute(io, string, direction : Bool, *args)
       keep_case? = !(args.includes? :no_keep_case) 
       upcase? = args.includes? :upcase 
  
@@ -99,7 +99,7 @@ module Crypt::Ciphers
         end
       end
 
-      result.join
+      result.each { |e| io << e }
     end
 
     def transform!(cut_whitespace? : Bool = @cut_whitespace, \

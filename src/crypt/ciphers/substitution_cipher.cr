@@ -6,8 +6,9 @@ module Crypt::Ciphers
     getter? cut_unknown     = false
 
     protected setter cut_whitespace, cut_unknown
-    def initialize(alpha : String, beta : String, **opts)
-      initialize Alphabet.new(alpha, **opts), Alphabet.new(beta, **opts)
+
+    def initialize(alpha, beta, **opts)
+      initialize Alphabet.new(alpha.to_s, **opts), Alphabet.new(beta.to_s, **opts)
     end
 
     def initialize(@alpha : Alphabet, @beta : Alphabet)
@@ -25,8 +26,8 @@ module Crypt::Ciphers
     end
 
     def known?(char : Char?, direction : Bool)
-      return false unless char      
-      return (direction ? (@alpha.includes? char) : (@beta.includes? char))
+      return false unless char
+      return (direction ? (@alpha.contains? char) : (@beta.contains? char))
     end
 
     private def subst(char : Char, direction : Bool = true)
@@ -34,19 +35,19 @@ module Crypt::Ciphers
     end
 
     private def subst_part(prev_char, current_char, next_char, direction)
-      case
+      return case
       when prev_char && !prev_char.whitespace?
-        return subst(current_char, direction)
+        subst(current_char, direction)
 
       when next_char.is_a?(Char) && !next_char.whitespace?
-        return subst(current_char, direction)
+        subst(current_char, direction)
 
       when current_char
-        return subst(current_char, direction)
+        subst(current_char, direction)
 
       when prev_char && next_char.is_a?(Char) && \
           current_char.whitespace? && !known?(prev_char, direction) && !known?(next_char, direction)
-        return subst(current_char, direction)
+        subst(current_char, direction)
 
       else
         nil
@@ -54,11 +55,11 @@ module Crypt::Ciphers
     end
 
     private def substitute(string, direction : Bool, *args)
-      keep_case? = !(args.includes? :no_keep_case)
-      upcase? = args.includes? :upcase
-
-      if !keep_case? && upcase?
-        raise "You must not provide both the `:no_keep_case` and the `:upcase` flag, as that is paradoxal and would not work"
+      keep_case? = !(args.includes? :no_keep_case) 
+      upcase? = args.includes? :upcase 
+ 
+      if !keep_case? && upcase? 
+        raise "You must not provide both the `:no_keep_case` and the `:upcase` flag, as that is paradoxal and would not work" 
       end
 
       itr     = string.to_s.each_char
@@ -67,8 +68,8 @@ module Crypt::Ciphers
       result  = [] of Char
 
       until (char = itr.next).is_a? Iterator::Stop
-        uppercase? = char.uppercase?          
-        next_char = itr_nxt.next
+        uppercase? = char.uppercase?
+        next_char  = itr_nxt.next
 
         case 
         when known?(char, direction)
@@ -98,20 +99,38 @@ module Crypt::Ciphers
       result.join
     end
 
+    def transform!(cut_whitespace? : Bool = @cut_whitespace, \
+                   cut_unknown?    : Bool = @cut_unknown)
+
+      @cut_whitespace  = cut_whitespace?
+      @cut_unknown     = cut_unknown?
+
+      itself
+    end
+
     def transform(cut_whitespace? : Bool = @cut_whitespace, \
                   cut_unknown?    : Bool = @cut_unknown)
-
-      return itself.dup if (cut_whitespace? == @cut_whitespace) && (cut_unknown? == @cut_unknown)
-      
-      # Create a duplicate of this cipher
-      transformed                 = itself.dup
+      return itself.dup if (cut_whitespace? == @cut_whitespace) && (cut_unknown? == @cut_unknown) 
+       
+      # Create a duplicate of this cipher 
+      transformed                 = itself.dup 
 
       # And apply the new config to it
-      transformed.cut_whitespace  = cut_whitespace?
-      transformed.cut_unknown     = cut_unknown?
-      
-      return transformed
+      transformed.cut_whitespace  = cut_whitespace? 
+      transformed.cut_unknown     = cut_unknown? 
+       
+      return transformed 
     end
+
+    {% for p in {:alpha, :beta} %}
+      def {{p.id}}=(alpha : Alphabet)
+        if (@{{p.id}}.size != alpha.size)
+          raise "The new {{p.id}} must be the same length as the previous"
+        end
+
+        @{{p.id}} = alpha
+      end
+    {% end %}
 
     def reverse
       reversed = new @beta, @alpha
@@ -125,19 +144,32 @@ module Crypt::Ciphers
       io << "⦕⦕#{@alpha}ψ#{@beta}⦖⦖"
     end
 
+    # Creates a human readable string representation of the cipher
+    # 
+    # 
+    # ```
+    # puts Ciphers.substitution("Yeah", "True").to_hr_s    
+    # ```
+    # 
+    # outputs: 
+    # ```text
+    # SubstitutionCipher:
+    #   Alpha: YEAH
+    #   Beta : TRUE
+    # ```
     def to_hr_s
       to_hrs(IO::Memory.new).to_s
     end
 
-    # :nodoc:
+    # 
     def to_hr_s(io : IO)
-      io << "SubstitutionCipher:33\n"
-      io << "\tAlpha: #{@aalpha }\n"
+      io << "SubstitutionCipher:\n"
+      io << "\tAlpha: #{@alpha }\n"
       io << "\tBeta : #{@beta  }"
     end
 
     def inspect(io : IO)
-      io << "#<Crypt::SubstitutionCipher⦕⦕#{@alpha}ψ#{@beta}⦖⦖>"
+      io << "Crypt::SubstitutionCipher(#{@alpha}ψ#{@beta})"
     end
 
     def case_sensitive?

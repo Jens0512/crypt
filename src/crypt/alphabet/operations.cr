@@ -17,7 +17,7 @@ module Crypt
     end
 
     def inspect(io : IO)
-      io << %(#<Crypt::Alphabet:"#{to_s}">)
+      io << %(Crypt::Alphabet:"#{to_s}")
     end
 
     def uniq(case_sensitive? : Bool = @case_sensitive, **opts)
@@ -32,6 +32,6 @@ module Crypt
       @letters.each { |letter| return true if letter == char }
 
       false
-    end    
+    end
   end
 end

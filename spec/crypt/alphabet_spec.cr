@@ -89,7 +89,7 @@ describe Alphabet do
     it "returns a new alphabet with all chars shifted by the amount specified" do
       # " - " is used here to show where the shift displaces the alphabet
       LATIN.shift(-3).to_s.should eq "XYZ - ABCDEFGHIJKLMNOPQRSTUVW".gsub(/ - /, "")
-      LATIN.shift(3).to_s.should eq "DEFGHIJKLMNOPQRSTUVWXYZ - ABC".gsub(/ - /, "")
+      LATIN.shift(3).to_s.should eq "DEFGHIJKLMNOPQRSTUVWXYZ - ABC".gsub(/ - /, "")      
     end
 
     it "uses the modulo of a shift if it is higher than the length of the initial , eg. with \
@@ -100,11 +100,12 @@ describe Alphabet do
       # If it fails, something is wrong with the way the shift is performed,
       # as the two produces the same result, they should be produced the same way,
       # hence they should take the same time to produce
+      #
+      # 28981489384247150 % 26 = 10
+      # 10 % 26 = 10
       Benchmark.realtime do
-        LATIN.shift(28981489384247150) # 28981489384247150 % 26 = 10
-      end.milliseconds.should be_close(Benchmark.realtime do
-        LATIN.shift(10) # 10 % 26 = 10
-      end.milliseconds, 0.1)
+        LATIN.shift(28981489384247150) 
+      end.milliseconds.should be_close(Benchmark.realtime { LATIN.shift(10) }.milliseconds, 0.001)
     end
   end
 
@@ -125,6 +126,24 @@ describe Alphabet do
 
       expect_raises(Exception) { LATIN.shift! 10 } # LATIN is declared as final in `crypt.cr`
       LATIN.should eq latin_copy_before_shift
+    end
+  end
+
+  describe "#-" do
+    it "returns an alphabet with all of its own unique chars minus a strings" do
+      (alphabet("ABCDEF") - "DEF").should eq "ABC"
+      
+      it "it checks the alphabets case_sensitivity and handles it correctly" do
+        (LATIN - "Bobby").should eq "ACDEFGHIJKLMNPQRSTUVWXZ"
+      end
+    end
+  end
+
+  describe "#**" do
+    it "a string returns an alphabet with the unique chars of itself and the string" do
+      key = "A void by georges perec".gsub(' ', "")
+
+      (LATIN ** key).should eq alphabet("AVOIDBYGERSPCFHJKLMNQTUWXZ")
     end
   end
 end

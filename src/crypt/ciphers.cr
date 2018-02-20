@@ -29,8 +29,11 @@ module Crypt
     # ```
     # substitution(alpha, key.chars.uniq.join + (alpha - key))
     # ```
-    def deranged(key : String, alpha : Alphabet = Alphabet.default)
-      substitution(alpha, key + (alpha - key))
+    def deranged(key : String, alpha : Alphabet = Alphabet.default, *, \
+        include_whitespace? : Bool = false)
+
+      key = (include_whitespace? ? key : key.gsub(/\ /, ""))
+      substitution(alpha, alpha ** key)
     end
 
     # Creates a substitution-cipher where characters 

@@ -13,6 +13,10 @@ describe SubstitutionCipher do
 
       cipher.encrypt("Hello").should eq "Spwwz"
       cipher.encrypt("lol").should   eq "wzw"
+
+      it "it cuts chars in between two cut chars" do
+        ROT3.transform(cut_unknown?: true).encrypt("Hello Bob, nr. 123").should  eq "Khoor Ere qu"        
+      end
     end
 
     it "encrypts a char" do
@@ -22,8 +26,8 @@ describe SubstitutionCipher do
     end
 
     it "tries to handle whitespace and unknown symbols in a logical way" do
-       rot3 = Ciphers.caesar 3
-       rot3 = rot3.transform cut_unknown?: true
+      rot3 = Ciphers.caesar 3
+      rot3 = rot3.transform cut_unknown?: true
       rot3.decrypt(rot3.encrypt "Th51.12_is12431, iº¬˘¯∑s, _we∘⍺⌈’∆?ak!").should eq "This is weak"
     end
 
@@ -41,26 +45,19 @@ describe SubstitutionCipher do
 
       cipher.encrypt("123").should eq "987"
       cipher.encrypt("987").should eq "123"
-    end    
+    end
   end
 
   describe "#transform" do
-    it "takes an argument specifying whether to cut unknown chars or not" do
-      # Encryption
-      ROT3.transform(cut_unknown?: true).encrypt("Hello Bob, nr. 123").should  eq "Khoor Ere qu"
+    it "takes an argument specifying whether to cut unknown chars or not." do
       ROT3.transform(cut_unknown?: false).encrypt("Hello Bob, nr. 123").should eq "Khoor Ere, qu. 123"
-
-      # Decryption
-      ROT3.transform(cut_unknown?: true).decrypt( "Khoor Ere, qu. 123").should eq "Hello Bob nr"
-      ROT3.transform(cut_unknown?: false).decrypt("Khoor Ere, qu. 123").should eq "Hello Bob, nr. 123"
+      ROT3.transform(cut_unknown?: false).decrypt("Khoor Ere, qu. 123").should eq "Hello Bob, nr. 123"      
     end
 
     it "takes an argument specifying whether to keep whitespace or not" do
-      # Encryption
       ROT3.transform(cut_whitespace?: true).encrypt("Veni vidi vici").should  eq "Yhqlylglylfl"
       ROT3.transform(cut_whitespace?: false).encrypt("Veni vidi vici").should eq "Yhql ylgl ylfl"
 
-      # Decryption
       ROT3.transform(cut_whitespace?: true).decrypt("Yhqlylglylfl").should    eq "Venividivici"
       ROT3.transform(cut_whitespace?: false).decrypt("Yhql ylgl ylfl").should eq "Veni vidi vici"
     end
@@ -76,7 +73,11 @@ describe SubstitutionCipher do
       cipher = Ciphers.caesar 11
 
       cipher.decrypt("Spwwz").should eq "Hello"
-      cipher.decrypt("wzw").should   eq "lol"      
+      cipher.decrypt("wzw").should   eq "lol"
+
+      it "it cuts chars in between two cut chars" do
+        ROT3.transform(cut_unknown?: true).decrypt( "Khoor Ere, qu. 123").should eq "Hello Bob nr"
+      end
     end
 
     it "encrypts a char" do

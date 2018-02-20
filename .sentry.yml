@@ -1,0 +1,7 @@
+# ':' is the bash null command, and always exits with 0
+# used to prevent SentryBot to shut down when the specs fail
+build: 'clear ; make spec ; :'
+
+watch:
+  - ./src/**/*.cr
+  - ./spec/**/*.cr

@@ -4,6 +4,11 @@
 /.shards/
 
 *sublime*
+
+sentry
+sentry.dwarf
+dev/*
+
 .DS_Store
 
 # Libraries don't need dependency lock

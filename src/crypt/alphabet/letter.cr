@@ -60,11 +60,8 @@ module Crypt
   end
 
   class Alphabet
-    # :nodoc:
-    struct Letter < SymbolBase; end
-
-    private struct AlphabetLetter < SymbolBase
-      property! index      
+    struct AlphabetLetter < Letter
+      property! index
 
       def initialize(char : Char, @index : Int32, parent : Alphabet)
         super(char, parent.case_sensitive?)

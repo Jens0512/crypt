@@ -1,3 +1,3 @@
-require "./spec_helper"
+require "./**.cr"
 
 describe Crypt do; end

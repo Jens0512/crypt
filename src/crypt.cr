@@ -1,4 +1,8 @@
-require "./crypt/*"
+require "./crypt/alphabet"
+require "./crypt/ciphers"
+require "./crypt/constants"
+require "./crypt/utils"
+require "./crypt/alphabet"
 
 include Crypt
 
@@ -8,12 +12,13 @@ module Crypt
 
   extend self
 
+  # See `Alphabet.new`
   def alphabet(letters, **opts)
     Alphabet.new letters, **opts
   end
 
   # :nodoc:
-  def bug_found!(line = __LINE__, file = __FILE__)
+  private def bug_found!(line = __LINE__, file = __FILE__)
     STDERR.puts <<-BUG_FOUND
     You have found a bug in the Crypt library!
     Caught in #{file}:#{line}

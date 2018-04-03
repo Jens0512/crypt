@@ -13,21 +13,15 @@ module Crypt
     # Utils.key_to_length "fish", 10 # => "fishfishfi"
     # Utils.key_to_length "nota bene", 3 # => "not"
     # ```
-    def key_to_length(key, length : Int)
-      key = key.to_s
-
+    def key_to_length(key, length : Int)  
+      itr = key.to_s.each_char.cycle
       result = [] of Char
-
-      itr = key.each_char.cycle
-
-      at = 0
-      while length > at
+      length.times do
         nxt = itr.next
-        result << nxt if nxt.is_a? Char
-        at += 1
+        result << nxt if nxt.is_a? Char        
       end
 
-      result.join ""
+      result.join
     end
 
 
@@ -52,11 +46,11 @@ module Crypt
       result.join
     end
     
-    # TODO: This
-    #
-    # `
-    #def alphabetic_sort(string : String, alpha : Alphabet)
-    #
-    #end
+    def alphabetic_sort(string : String, alpha : Alphabet)
+      string.sort_by do |c1, c2|
+        return false unless alpha.includes?(c1) && alpha.includes?(c2)
+        return alpha[c1].index > alpha[c2].index
+      end
+    end
   end
 end

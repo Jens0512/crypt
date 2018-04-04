@@ -1,8 +1,8 @@
 language: crystal
 
 script:
-  - crystal spec
   - crystal docs  
+  - crystal spec
 
 deploy:
   provider: pages

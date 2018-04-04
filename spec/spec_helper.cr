@@ -3,8 +3,8 @@ require "../src/crypt"
 
 include Crypt
 
-def letter(letter : Char, case_sensitive? : Bool = true)
-  Alphabet::Letter.new letter, case_sensitive?
+def letter(char : Char, case_sensitive? : Bool = true)
+  SymbolBase::SingleLetter.new char, case_sensitive?
 end
 
 {% for shift in (1...26) %}

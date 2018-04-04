@@ -6,15 +6,27 @@ module Crypt
       abstract def encrypt(io : IO, string : String, *args, **opts)
       abstract def decrypt(io : IO, string : String, *args, **opts)
 
-      def encrypt(string, *args, **opts) : String
+      def encrypt(alpha : Alphabet, *args, **opts) : String
         String.build do |io|
-          encrypt(io, string.to_s, *args, **opts)
+          encrypt(io, alpha.to_s, *args, **opts)
         end
       end
 
-      def decrypt(string, *args, **opts) : String
+      def decrypt(alpha : Alphabet, *args, **opts) : String
         String.build do |io|
-          decrypt(io, string.to_s, *args, **opts)
+          decrypt(io, alpha.to_s, *args, **opts)
+        end
+      end
+
+      def encrypt(string : String, *args, **opts) : String
+        String.build do |io|
+          encrypt(io, string, *args, **opts)
+        end
+      end
+
+      def decrypt(string : String, *args, **opts) : String
+        String.build do |io|
+          decrypt(io, string, *args, **opts)
         end
       end
 

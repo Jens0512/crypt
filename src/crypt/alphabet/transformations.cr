@@ -1,5 +1,5 @@
 module Crypt
-  class Alphabet
+  struct Alphabet
     # Shifts an alphabet `shift` to the left
     # 
     # ```

@@ -69,7 +69,7 @@ describe SubstitutionCipher do
 
   describe "#decrypt" do
     it "encrypts a string" do
-      # Shortcut to `SubstitutionCipher.new(LATIN, LATIN.shift 10)`
+      # Shortcut to `SubstitutionCipher.new(LATIN, LATIN.shift 11)`
       cipher = Ciphers.caesar 11
 
       cipher.decrypt("Spwwz").should eq "Hello"

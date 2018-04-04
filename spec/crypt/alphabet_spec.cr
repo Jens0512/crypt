@@ -6,7 +6,7 @@ describe Alphabet do
     it "takes a char as argument to get letter for a char" do
       LATIN['X'].should eq 'X'
       LATIN['G'].should eq 'G'
-      LATIN[rand(LATIN.size)].is_a?)(Alphabet::AlphabetLetter).should be_true
+      LATIN[rand(LATIN.size)].is_a?(Alphabet::Letter).should be_true
       LATIN['A'].index.should eq 1
       LATIN['F'].index.should eq 6
     end

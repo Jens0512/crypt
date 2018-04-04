@@ -1,5 +1,5 @@
 module Crypt
-  class Alphabet
+  struct Alphabet
     def [](index : Char | Int, upcase? : Bool? = nil)
       if index.is_a? Char
         if letter = get_letter(index)
@@ -22,7 +22,7 @@ module Crypt
       rescue e : IndexError
         return nil
       end
-    end
+    end    
 
     # Returns the letter of char in the alphabet. 
     # If alphabet does not contain the letter: `nil` is returned

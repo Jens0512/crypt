@@ -1,3 +1,3 @@
-require "./**.cr"
+require "./crypt/*"
 
 describe Crypt do; end

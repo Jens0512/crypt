@@ -3,6 +3,7 @@ require "./crypt/ciphers"
 require "./crypt/constants"
 require "./crypt/utils"
 require "./crypt/alphabet"
+require "./crypt/object_extensions"
 
 include Crypt
 

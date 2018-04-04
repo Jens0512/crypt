@@ -24,17 +24,16 @@ module Crypt
       result.join
     end
 
-
     # Turns every char in `string` to the same index case of `delta`
     # 
     # ```
     # Utils.case_to "HELLO", "BoBBy" # => "HeLLo"
     # ```
-    def case_to(string : String, delta : String)
+    def case_to(string, delta)
       result = [] of Char
 
-      sitr = string.each_char
-      ditr = delta.each_char 
+      sitr = string.to_s.each_char
+      ditr = delta.to_s.each_char 
 
       while true
         break if (dc = ditr.next).is_a? Iterator::Stop
@@ -44,6 +43,10 @@ module Crypt
       end
 
       result.join
+    end
+
+    def case_to(char : Char, delta : Char)
+      (delta.uppercase? ? char.upcase : char.downcase)
     end
     
     def alphabetic_sort(string : String, alpha : Alphabet)

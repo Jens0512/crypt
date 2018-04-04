@@ -9,7 +9,7 @@ module Crypt
     
     protected property char
 
-    protected def initialize(@char : Char, case_sensitive? : Bool) 
+    protected def initialize(@char : Char, case_sensitive? : Bool)
       @case_sensitive = case_sensitive?
     end
 
@@ -57,10 +57,12 @@ module Crypt
     end
 
     delegate uppercase?, to: @char
+
+    struct SingleLetter < SymbolBase; end
   end
 
-  class Alphabet
-    struct AlphabetLetter < Letter
+  struct Alphabet    
+    struct Letter < SymbolBase
       property! index
 
       def initialize(char : Char, @index : Int32, parent : Alphabet)

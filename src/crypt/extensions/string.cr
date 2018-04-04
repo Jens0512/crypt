@@ -1,8 +1,10 @@
 module Crypt
   
   # Crypt extends the String class a bit to simplifiy operations
-  # 
-  # 
+  # To use this extension of the String class:
+  # ```
+  # reqiure "crypt/extensions/string"
+  # ```
   class ::String
 
     # Same as `String#<<(alpha : Alphabet)` but returns an alphabet with only unique chars

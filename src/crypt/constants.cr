@@ -1,6 +1,6 @@
 module Crypt
   module Constants
-    extend self
+    extend self    
 
     # The latin alphabet, the same as the english
     LATIN = Alphabet.new "ABCDEFGHIJKLMNOPQRSTUVWXYZ", final?: true

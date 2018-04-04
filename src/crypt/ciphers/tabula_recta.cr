@@ -1,6 +1,6 @@
 require "colorize"
 
-module Crypt::Ciphers  
+module Crypt::Ciphers
   class TabulaRecta < Cipher
     getter? key
     getter alphabet
@@ -18,16 +18,18 @@ module Crypt::Ciphers
       encrypt(char, key_char)
     end
 
-    def encrypt(string, key = @key, *args)
-      substitute string, key, true, *args
+    def encrypt(io : IO, string, key = @key, *args)
+      substitute io, string, key, true, *args
     end
 
-    def decrypt(string, key = @key, *args)
-      substitute string, key, false, *args
+    def decrypt(io : IO, string, key = @key, *args)
+      substitute io, string, key, false, *args
     end
 
-    private def substitute(string, key, direction, *args)
+    private def substitute(io : IO, string, key, direction, *args)
       result = [] of Char
+
+      upcase? = args.includes? :upcase
 
       keyit = key.to_s.each_char.cycle
       strit = string.to_s.each_char
@@ -35,15 +37,14 @@ module Crypt::Ciphers
       while true
         break if (char = strit.next).is_a? Iterator::Stop
 
-        result << char.upcase && next \
-          unless @alphabet.contains?(char.upcase)
+        result << char && next unless @alphabet.contains?(char)
 
         break if (ckey = keyit.next).is_a? Iterator::Stop
 
-        result << (direction ? encrypt(char, ckey) : decrypt(char, ckey))
+        result << Utils.case_to((direction ? encrypt(char, ckey) : decrypt(char, ckey)), (upcase? ? 'A' : char))
       end
 
-      Utils.case_to(result.join, string.to_s)
+      result.each { |e| io << e}
     end
 
     def print(io : IO = STDOUT); self.print_table(itself, io); end
@@ -54,7 +55,7 @@ module Crypt::Ciphers
         line = alphabet.shift(letter.index - 1).join("|").colorize :green
 
         line.mode :underline unless letter.index == alphabet.size
-        left_char = letter.to_c.colorize.fore(:light_green).mode :bold 
+        left_char = letter.to_c.colorize.fore(:light_green).mode :bold
         
         io.puts "#{left_char} #{line}"
       end

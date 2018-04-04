@@ -4,8 +4,8 @@ module Crypt
   # An alphabet does not neccesarily have to be the 
   # latin "abc...xyz" alphabet, but can be any length of chars.
   # Used in the ciphers here for just about everything
-  class Alphabet
-    include Enumerable(AlphabetLetter)
+  struct Alphabet
+    include Enumerable(Letter)
     
     # Used in the `Ciphers`-module
     # Change to whatever you'd like
@@ -13,7 +13,7 @@ module Crypt
 
     include Indexable(Int32 | Char)
 
-    @letters : Array(AlphabetLetter)
+    @letters : Array(Letter)
 
     protected def letters; @letters; end
         
@@ -35,11 +35,11 @@ module Crypt
       @case_sensitive = case_sensitive?
       @final = final?
 
-      @letters = [] of AlphabetLetter
+      @letters = [] of Letter
 
       i = 1
       letters.each do |letter|
-        @letters << AlphabetLetter.new((case_sensitive? ? letter : letter.upcase), i, itself)
+        @letters << Letter.new((case_sensitive? ? letter : letter.upcase), i, itself)
         i += 1
       end
     end

@@ -55,5 +55,7 @@ module Crypt
     def dvorak
       DVORAK_CIPHER
     end
+
+    SUBSTITUTIONFLAGS = {:upcase, :keep_case}
   end
 end

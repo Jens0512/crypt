@@ -59,11 +59,11 @@ module Crypt::Ciphers
 
     private def substitute(io, string, direction : Bool, *args)
       keep_case? = !(args.includes? :no_keep_case) 
-      upcase? = args.includes? :upcase 
- 
-      if !keep_case? && upcase? 
-        raise "You must not provide both the `:no_keep_case` and the `:upcase` flag, as that is paradoxal and would not work" 
-      end
+      upcase? = args.includes? :upcase        
+
+      if !keep_case? && upcase?  
+        raise "You must not provide both the `:no_keep_case` and the `:upcase` flag"
+      end 
 
       itr     = string.to_s.each_char
       itr_nxt = string.to_s.each_char.skip 1

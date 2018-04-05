@@ -3,17 +3,15 @@ module Crypt::Ciphers
     private property atbash : Cipher
 
     def initialize (alphabet : Alphabet = Alphabet.default, key : String? = nil)
-      @atbash = Ciphers.atbash alphabet
-
-      super # !
+      super Ciphers.atbash(alphabet), key
     end
 
     def encrypt(io : IO, string, key = @key, *args)
-      super(io, atbash.encrypt(string), key, *args)
+      super
     end
 
     def decrypt(io : IO, string, key = @key, *args)
-      super(io, atbash.decrypt(string), key, *args)
+      super
     end
 
     # I must see this to see how to use the tabula to create a vigenère
@@ -21,5 +19,3 @@ module Crypt::Ciphers
 
   end
 end
-
-puts VigenereCipher.new.encrypt("Hello")

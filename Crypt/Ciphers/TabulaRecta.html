@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/Jens0512/crypt">
+  <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../js/doc.js"></script>
+  <title>Crypt::Ciphers::TabulaRecta - github.com/Jens0512/crypt</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/Jens0512/crypt/Crypt" data-name="crypt">
+      <a href="../../Crypt.html">Crypt</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Alphabet" data-name="crypt::alphabet">
+      <a href="../../Crypt/Alphabet.html">Alphabet</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/Jens0512/crypt/Crypt/Ciphers" data-name="crypt::ciphers">
+      <a href="../../Crypt/Ciphers.html">Ciphers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/Cipher" data-name="crypt::ciphers::cipher">
+      <a href="../../Crypt/Ciphers/Cipher.html">Cipher</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/SubstitutionCipher" data-name="crypt::ciphers::substitutioncipher">
+      <a href="../../Crypt/Ciphers/SubstitutionCipher.html">SubstitutionCipher</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/Jens0512/crypt/Crypt/Ciphers/TabulaRecta" data-name="crypt::ciphers::tabularecta">
+      <a href="../../Crypt/Ciphers/TabulaRecta.html">TabulaRecta</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/VigenèreCipher" data-name="crypt::ciphers::vigenèrecipher">
+      <a href="../../Crypt/Ciphers/VigenèreCipher.html">VigenèreCipher</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Constants" data-name="crypt::constants">
+      <a href="../../Crypt/Constants.html">Constants</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/SymbolBase" data-name="crypt::symbolbase">
+      <a href="../../Crypt/SymbolBase.html">SymbolBase</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Utils" data-name="crypt::utils">
+      <a href="../../Crypt/Utils.html">Utils</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/String" data-name="string">
+      <a href="../../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Crypt::Ciphers::TabulaRecta
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crypt/Ciphers/TabulaRecta.html">Crypt::Ciphers::TabulaRecta</a></li><li class="superclass"><a href="../../Crypt/Ciphers/Cipher.html">Crypt::Ciphers::Cipher</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Direct Known Subclasses</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type"><a href="../../Crypt/Ciphers/VigenèreCipher.html">Crypt::Ciphers::VigenèreCipher</a></li>
+  
+  </ul>
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/tabula_recta.cr#L4" target="_blank">crypt/ciphers/tabula_recta.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28alphabet%3AAlphabet%3DAlphabet.default%2Ckey%3AString%3F%3Dnil%29-class-method" class="signature"><strong>.new</strong>(alphabet : Alphabet = <span class="t">Alphabet</span>.default, key : String? = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Class Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#print_table%28alphabet%3DAlphabet.default%2Cio%3AIO%3DSTDOUT%29-class-method" class="signature"><strong>.print_table</strong>(alphabet = <span class="t">Alphabet</span>.default, io : IO = <span class="t">STDOUT</span>)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#alphabet%3ACrypt%3A%3AAlphabet-instance-method" class="signature"><strong>#alphabet</strong> : Crypt::Alphabet</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#decrypt%28char%3AChar%2Ckey_char%3AChar%2C%2Aargs%29%3AChar-instance-method" class="signature"><strong>#decrypt</strong>(char : Char, key_char : Char, *args) : Char</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#decrypt%28string%2Ckey%3D%40key%2C%2Aargs%29-instance-method" class="signature"><strong>#decrypt</strong>(string, key = @key, *args)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#encrypt%28char%3AChar%2Ckey_char%3AChar%2C%2Aargs%29%3AChar-instance-method" class="signature"><strong>#encrypt</strong>(char : Char, key_char : Char, *args) : Char</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#encrypt%28string%2Ckey%3D%40key%2C%2Aargs%29-instance-method" class="signature"><strong>#encrypt</strong>(string, key = @key, *args)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key%3F%3AString%3F-instance-method" class="signature"><strong>#key?</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#print%28io%3AIO%3DSTDOUT%29-instance-method" class="signature"><strong>#print</strong>(io : IO = <span class="t">STDOUT</span>)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="../../Crypt/Ciphers/Cipher.html">Crypt::Ciphers::Cipher</a></code></h3>
+  
+  
+    <a href="../../Crypt/Ciphers/Cipher.html#decrypt%28io%3AIO%2Cstring%3AString%2C%2Aargs%2C%2A%2Aopts%29-instance-method" class="tooltip">
+      <span>decrypt(io : IO, string : String, *args, **opts)<br/>decrypt(char : Char, *args, **opts)<br/>decrypt(string, *args, **opts) : String</span>
+    decrypt</a>, 
+    
+  
+    <a href="../../Crypt/Ciphers/Cipher.html#encrypt%28io%3AIO%2Cstring%3AString%2C%2Aargs%2C%2A%2Aopts%29-instance-method" class="tooltip">
+      <span>encrypt(io : IO, string : String, *args, **opts)<br/>encrypt(char : Char, *args, **opts)<br/>encrypt(string, *args, **opts) : String</span>
+    encrypt</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(alphabet:Alphabet=Alphabet.default,key:String?=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(alphabet : <a href="../../Crypt/Alphabet.html">Alphabet</a> = <span class="t">Alphabet</span>.default, key : <a href="../../String.html">String</a>? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new%28alphabet%3AAlphabet%3DAlphabet.default%2Ckey%3AString%3F%3Dnil%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/tabula_recta.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Class Method Detail</h2>
+  
+    <div class="entry-detail" id="print_table(alphabet=Alphabet.default,io:IO=STDOUT)-class-method">
+      <div class="signature">
+        
+        def self.<strong>print_table</strong>(alphabet = <span class="t">Alphabet</span>.default, io : IO = <span class="t">STDOUT</span>)
+
+        <a class="method-permalink" href="#print_table%28alphabet%3DAlphabet.default%2Cio%3AIO%3DSTDOUT%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/tabula_recta.cr#L51" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="alphabet:Crypt::Alphabet-instance-method">
+      <div class="signature">
+        
+        def <strong>alphabet</strong> : <a href="../../Crypt/Alphabet.html">Crypt::Alphabet</a>
+
+        <a class="method-permalink" href="#alphabet%3ACrypt%3A%3AAlphabet-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/tabula_recta.cr#L6" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="decrypt(char:Char,key_char:Char,*args):Char-instance-method">
+      <div class="signature">
+        
+        def <strong>decrypt</strong>(char : Char, key_char : Char, *args) : Char
+
+        <a class="method-permalink" href="#decrypt%28char%3AChar%2Ckey_char%3AChar%2C%2Aargs%29%3AChar-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/tabula_recta.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="decrypt(string,key=@key,*args)-instance-method">
+      <div class="signature">
+        
+        def <strong>decrypt</strong>(string, key = @key, *args)
+
+        <a class="method-permalink" href="#decrypt%28string%2Ckey%3D%40key%2C%2Aargs%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/tabula_recta.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="encrypt(char:Char,key_char:Char,*args):Char-instance-method">
+      <div class="signature">
+        
+        def <strong>encrypt</strong>(char : Char, key_char : Char, *args) : Char
+
+        <a class="method-permalink" href="#encrypt%28char%3AChar%2Ckey_char%3AChar%2C%2Aargs%29%3AChar-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/tabula_recta.cr#L10" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="encrypt(string,key=@key,*args)-instance-method">
+      <div class="signature">
+        
+        def <strong>encrypt</strong>(string, key = @key, *args)
+
+        <a class="method-permalink" href="#encrypt%28string%2Ckey%3D%40key%2C%2Aargs%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/tabula_recta.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key?:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>key?</strong> : <a href="../../String.html">String</a>?
+
+        <a class="method-permalink" href="#key%3F%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/tabula_recta.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="print(io:IO=STDOUT)-instance-method">
+      <div class="signature">
+        
+        def <strong>print</strong>(io : IO = <span class="t">STDOUT</span>)
+
+        <a class="method-permalink" href="#print%28io%3AIO%3DSTDOUT%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/tabula_recta.cr#L49" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

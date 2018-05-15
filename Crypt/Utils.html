@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/Jens0512/crypt">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>Crypt::Utils - github.com/Jens0512/crypt</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/Jens0512/crypt/Crypt" data-name="crypt">
+      <a href="../Crypt.html">Crypt</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Alphabet" data-name="crypt::alphabet">
+      <a href="../Crypt/Alphabet.html">Alphabet</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/Jens0512/crypt/Crypt/Ciphers" data-name="crypt::ciphers">
+      <a href="../Crypt/Ciphers.html">Ciphers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/Cipher" data-name="crypt::ciphers::cipher">
+      <a href="../Crypt/Ciphers/Cipher.html">Cipher</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/SubstitutionCipher" data-name="crypt::ciphers::substitutioncipher">
+      <a href="../Crypt/Ciphers/SubstitutionCipher.html">SubstitutionCipher</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/TabulaRecta" data-name="crypt::ciphers::tabularecta">
+      <a href="../Crypt/Ciphers/TabulaRecta.html">TabulaRecta</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/VigenèreCipher" data-name="crypt::ciphers::vigenèrecipher">
+      <a href="../Crypt/Ciphers/VigenèreCipher.html">VigenèreCipher</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Constants" data-name="crypt::constants">
+      <a href="../Crypt/Constants.html">Constants</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/SymbolBase" data-name="crypt::symbolbase">
+      <a href="../Crypt/SymbolBase.html">SymbolBase</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/Jens0512/crypt/Crypt/Utils" data-name="crypt::utils">
+      <a href="../Crypt/Utils.html">Utils</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/String" data-name="string">
+      <a href="../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Crypt::Utils
+
+</h1>
+
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>Handy utils
+Notably <code><a href="../Crypt/Utils.html#key_to_length%28key%2Clength%3AInt%29-instance-method">#key_to_length</a></code> and <code><a href="../Crypt/Utils.html#case_to%28string%3AString%2Cdelta%3AString%29-instance-method">#case_to</a></code></p>
+
+
+
+
+
+
+
+  <h2>Extended Modules</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type"><a href="../Crypt/Utils.html">Crypt::Utils</a></li>
+  
+  </ul>
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/utils.cr#L4" target="_blank">crypt/utils.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#case_to%28string%3AString%2Cdelta%3AString%29-instance-method" class="signature"><strong>#case_to</strong>(string : String, delta : String)</a>
+        
+          <div class="summary"><p>Turns every char in <code>string</code> to the same index case of <code>delta</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_to_length%28key%2Clength%3AInt%29-instance-method" class="signature"><strong>#key_to_length</strong>(key, length : Int)</a>
+        
+          <div class="summary"><p>Repeats <code>key</code> until it is the size of <code>length</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_to_length%28key%2Cstring%29-instance-method" class="signature"><strong>#key_to_length</strong>(key, string)</a>
+        
+          <div class="summary"><p>Same as <code><a href="../Crypt/Utils.html#key_to_length%28key%2Clength%3AInt%29-instance-method">#key_to_length</a></code> where <code>length</code> is passed as the size of <code>string</code></p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="case_to(string:String,delta:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>case_to</strong>(string : <a href="../String.html">String</a>, delta : <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#case_to%28string%3AString%2Cdelta%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Turns every char in <code>string</code> to the same index case of <code>delta</code></p>
+
+<pre><code><span class="t">Utils</span>.case_to <span class="s">&quot;HELLO&quot;</span>, <span class="s">&quot;BoBBy&quot;</span> <span class="c"># =&gt; &quot;HeLLo&quot;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/utils.cr#L39" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_to_length(key,length:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>key_to_length</strong>(key, length : Int)
+
+        <a class="method-permalink" href="#key_to_length%28key%2Clength%3AInt%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Repeats <code>key</code> until it is the size of <code>length</code></p>
+
+<pre><code><span class="t">Utils</span>.key_to_length <span class="s">&quot;fish&quot;</span>, <span class="n">10</span> <span class="c"># =&gt; &quot;fishfishfi&quot;</span>
+<span class="t">Utils</span>.key_to_length <span class="s">&quot;nota bene&quot;</span>, <span class="n">3</span> <span class="c"># =&gt; &quot;not&quot;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/utils.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_to_length(key,string)-instance-method">
+      <div class="signature">
+        
+        def <strong>key_to_length</strong>(key, string)
+
+        <a class="method-permalink" href="#key_to_length%28key%2Cstring%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Same as <code><a href="../Crypt/Utils.html#key_to_length%28key%2Clength%3AInt%29-instance-method">#key_to_length</a></code> where <code>length</code> is passed as the size of <code>string</code></p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/utils.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

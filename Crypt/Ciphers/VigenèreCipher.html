@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/Jens0512/crypt">
+  <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../js/doc.js"></script>
+  <title>Crypt::Ciphers::VigenèreCipher - github.com/Jens0512/crypt</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/Jens0512/crypt/Crypt" data-name="crypt">
+      <a href="../../Crypt.html">Crypt</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Alphabet" data-name="crypt::alphabet">
+      <a href="../../Crypt/Alphabet.html">Alphabet</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/Jens0512/crypt/Crypt/Ciphers" data-name="crypt::ciphers">
+      <a href="../../Crypt/Ciphers.html">Ciphers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/Cipher" data-name="crypt::ciphers::cipher">
+      <a href="../../Crypt/Ciphers/Cipher.html">Cipher</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/SubstitutionCipher" data-name="crypt::ciphers::substitutioncipher">
+      <a href="../../Crypt/Ciphers/SubstitutionCipher.html">SubstitutionCipher</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/TabulaRecta" data-name="crypt::ciphers::tabularecta">
+      <a href="../../Crypt/Ciphers/TabulaRecta.html">TabulaRecta</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/Jens0512/crypt/Crypt/Ciphers/VigenèreCipher" data-name="crypt::ciphers::vigenèrecipher">
+      <a href="../../Crypt/Ciphers/VigenèreCipher.html">VigenèreCipher</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Constants" data-name="crypt::constants">
+      <a href="../../Crypt/Constants.html">Constants</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/SymbolBase" data-name="crypt::symbolbase">
+      <a href="../../Crypt/SymbolBase.html">SymbolBase</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Utils" data-name="crypt::utils">
+      <a href="../../Crypt/Utils.html">Utils</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/String" data-name="string">
+      <a href="../../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Crypt::Ciphers::VigenèreCipher
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crypt/Ciphers/VigenèreCipher.html">Crypt::Ciphers::VigenèreCipher</a></li><li class="superclass"><a href="../../Crypt/Ciphers/TabulaRecta.html">Crypt::Ciphers::TabulaRecta</a></li><li class="superclass"><a href="../../Crypt/Ciphers/Cipher.html">Crypt::Ciphers::Cipher</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/ciphers/vigenère_ciper.cr#L2" target="_blank">crypt/ciphers/vigenère_ciper.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="../../Crypt/Ciphers/TabulaRecta.html">Crypt::Ciphers::TabulaRecta</a></code></h3>
+  
+  
+    <a href="../../Crypt/Ciphers/TabulaRecta.html#alphabet%3ACrypt%3A%3AAlphabet-instance-method" class="tooltip">
+      <span>alphabet : Crypt::Alphabet</span>
+    alphabet</a>, 
+    
+  
+    <a href="../../Crypt/Ciphers/TabulaRecta.html#decrypt%28char%3AChar%2Ckey_char%3AChar%2C%2Aargs%29%3AChar-instance-method" class="tooltip">
+      <span>decrypt(char : Char, key_char : Char, *args) : Char<br/>decrypt(string, key = @key, *args)</span>
+    decrypt</a>, 
+    
+  
+    <a href="../../Crypt/Ciphers/TabulaRecta.html#encrypt%28char%3AChar%2Ckey_char%3AChar%2C%2Aargs%29%3AChar-instance-method" class="tooltip">
+      <span>encrypt(char : Char, key_char : Char, *args) : Char<br/>encrypt(string, key = @key, *args)</span>
+    encrypt</a>, 
+    
+  
+    <a href="../../Crypt/Ciphers/TabulaRecta.html#key%3F%3AString%3F-instance-method" class="tooltip">
+      <span>key? : String?</span>
+    key?</a>, 
+    
+  
+    <a href="../../Crypt/Ciphers/TabulaRecta.html#print%28io%3AIO%3DSTDOUT%29-instance-method" class="tooltip">
+      <span>print(io : IO = <span class="t">STDOUT</span>)</span>
+    print</a>
+    
+  
+
+
+    
+
+  <h3>Constructor methods inherited from class <code><a href="../../Crypt/Ciphers/TabulaRecta.html">Crypt::Ciphers::TabulaRecta</a></code></h3>
+  
+  
+    <a href="../../Crypt/Ciphers/TabulaRecta.html#new%28alphabet%3AAlphabet%3DAlphabet.default%2Ckey%3AString%3F%3Dnil%29-class-method" class="tooltip">
+      <span>new(alphabet : Alphabet = <span class="t">Alphabet</span>.default, key : String? = <span class="n">nil</span>)</span>
+    new</a>
+    
+  
+
+
+    
+
+  <h3>Class methods inherited from class <code><a href="../../Crypt/Ciphers/TabulaRecta.html">Crypt::Ciphers::TabulaRecta</a></code></h3>
+  
+  
+    <a href="../../Crypt/Ciphers/TabulaRecta.html#print_table%28alphabet%3DAlphabet.default%2Cio%3AIO%3DSTDOUT%29-class-method" class="tooltip">
+      <span>print_table(alphabet = <span class="t">Alphabet</span>.default, io : IO = <span class="t">STDOUT</span>)</span>
+    print_table</a>
+    
+  
+
+
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="../../Crypt/Ciphers/Cipher.html">Crypt::Ciphers::Cipher</a></code></h3>
+  
+  
+    <a href="../../Crypt/Ciphers/Cipher.html#decrypt%28io%3AIO%2Cstring%3AString%2C%2Aargs%2C%2A%2Aopts%29-instance-method" class="tooltip">
+      <span>decrypt(io : IO, string : String, *args, **opts)<br/>decrypt(char : Char, *args, **opts)<br/>decrypt(string, *args, **opts) : String</span>
+    decrypt</a>, 
+    
+  
+    <a href="../../Crypt/Ciphers/Cipher.html#encrypt%28io%3AIO%2Cstring%3AString%2C%2Aargs%2C%2A%2Aopts%29-instance-method" class="tooltip">
+      <span>encrypt(io : IO, string : String, *args, **opts)<br/>encrypt(char : Char, *args, **opts)<br/>encrypt(string, *args, **opts) : String</span>
+    encrypt</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

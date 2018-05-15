@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/Jens0512/crypt">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>Crypt::Alphabet - github.com/Jens0512/crypt</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/Jens0512/crypt/Crypt" data-name="crypt">
+      <a href="../Crypt.html">Crypt</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="github.com/Jens0512/crypt/Crypt/Alphabet" data-name="crypt::alphabet">
+      <a href="../Crypt/Alphabet.html">Alphabet</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/Jens0512/crypt/Crypt/Ciphers" data-name="crypt::ciphers">
+      <a href="../Crypt/Ciphers.html">Ciphers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/Cipher" data-name="crypt::ciphers::cipher">
+      <a href="../Crypt/Ciphers/Cipher.html">Cipher</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/SubstitutionCipher" data-name="crypt::ciphers::substitutioncipher">
+      <a href="../Crypt/Ciphers/SubstitutionCipher.html">SubstitutionCipher</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/TabulaRecta" data-name="crypt::ciphers::tabularecta">
+      <a href="../Crypt/Ciphers/TabulaRecta.html">TabulaRecta</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Ciphers/VigenèreCipher" data-name="crypt::ciphers::vigenèrecipher">
+      <a href="../Crypt/Ciphers/VigenèreCipher.html">VigenèreCipher</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Constants" data-name="crypt::constants">
+      <a href="../Crypt/Constants.html">Constants</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/SymbolBase" data-name="crypt::symbolbase">
+      <a href="../Crypt/SymbolBase.html">SymbolBase</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/Crypt/Utils" data-name="crypt::utils">
+      <a href="../Crypt/Utils.html">Utils</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/Jens0512/crypt/String" data-name="string">
+      <a href="../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Crypt::Alphabet
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Crypt/Alphabet.html">Crypt::Alphabet</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>An alphabet does not neccesarily have to be the 
+latin "abc...xyz" alphabet, but can be any length of chars.
+Used in the ciphers here for just about everything</p>
+
+
+
+
+
+  <h2>Included Modules</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type">Enumerable(Crypt::Alphabet::AlphabetLetter)</li>
+  
+    <li class="other-type">Indexable(Char | Int32)</li>
+  
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/letter.cr#L62" target="_blank">crypt/alphabet/letter.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operations.cr#L2" target="_blank">crypt/alphabet/operations.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L2" target="_blank">crypt/alphabet/operators.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/transformations.cr#L2" target="_blank">crypt/alphabet/transformations.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet.cr#L7" target="_blank">crypt/alphabet.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#default%3AAlphabet-class-method" class="signature"><strong>.default</strong> : Alphabet</a>
+        
+          <div class="summary"><p>Used in the <code><a href="../Crypt/Ciphers.html">Ciphers</a></code>-module Change to whatever you'd like</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28alpha%3AAlphabet%2C%2A%2Aopts%29-class-method" class="signature"><strong>.new</strong>(alpha : Alphabet, **opts)</a>
+        
+          <div class="summary"><p>Passes alpha.to_s and **opts to <code>Alphabet.new(letters: String, *)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28letters%3AString%2C%2A%2Ccase_sensitive%3F%3ABool%3Dfalse%2Cfinal%3F%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(letters : String, *, case_sensitive? : Bool = <span class="n">false</span>, final? : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Creates an alphabet with the characters of letters</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28letters%3AArray%28Char%29%2C%2A%2Ccase_sensitive%3F%3ABool%3Dfalse%2Cfinal%3F%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(letters : Array(Char), *, case_sensitive? : Bool = <span class="n">false</span>, final? : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Same as `Alphabet.initialize(letters : String)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shift%28initial%3AAlphabet%2Cshift%3AInt%2Ccase_sensitive%3F%3ABool%3Dinitial.case_sensitive%3F%2C%2A%2Aopts%29%3AAlphabet-class-method" class="signature"><strong>.shift</strong>(initial : Alphabet, shift : Int, case_sensitive? : Bool = initial.case_sensitive?, **opts) : Alphabet</a>
+        
+          <div class="summary"><p>Returns an alphabet that is a shift by <code><a href="../Crypt/Alphabet.html#shift%28shift%3AInt%29-instance-method">#shift</a></code> of <code>initial</code></p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Class Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#default%3D%28default%3AAlphabet%29-class-method" class="signature"><strong>.default=</strong>(default : Alphabet)</a>
+        
+          <div class="summary"><p>Used in the <code><a href="../Crypt/Ciphers.html">Ciphers</a></code>-module Change to whatever you'd like</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#%2A%2A%28string%3AString%29-instance-method" class="signature"><strong>#**</strong>(string : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%2A%2A%28other%3AAlphabet%29-instance-method" class="signature"><strong>#**</strong>(other : Alphabet)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#-%28string%3AString%29-instance-method" class="signature"><strong>#-</strong>(string : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#-%28other%3AAlphabet%29-instance-method" class="signature"><strong>#-</strong>(other : Alphabet)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3C%3C%28string%3AString%29-instance-method" class="signature"><strong>#<<</strong>(string : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3C%3C%28other%3AAlphabet%29-instance-method" class="signature"><strong>#<<</strong>(other : Alphabet)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3D%3D%28other%3AAlphabet%29-instance-method" class="signature"><strong>#==</strong>(other : Alphabet)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3D%3D%28string%3AString%29-instance-method" class="signature"><strong>#==</strong>(string : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3E%3E%28string%3AString%29-instance-method" class="signature"><strong>#>></strong>(string : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3E%3E%28other%3AAlphabet%29-instance-method" class="signature"><strong>#>></strong>(other : Alphabet)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%28index%3AChar%7CInt%2Cupcase%3F%3ABool%3F%3Dnil%29-instance-method" class="signature"><strong>#[]</strong>(index : Char | Int, upcase? : Bool? = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%3F%28index%3AChar%7CInt%2Cupcase%3F%3ABool%3F%3Dnil%29-instance-method" class="signature"><strong>#[]?</strong>(index : Char | Int, upcase? : Bool? = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#case_sensitive%3F%3ABool-instance-method" class="signature"><strong>#case_sensitive?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#contains%3F%28char%3AChar%29-instance-method" class="signature"><strong>#contains?</strong>(char : Char)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each%28%26block%29-instance-method" class="signature"><strong>#each</strong>(&block)</a>
+        
+          <div class="summary"><p>Yields each <code>Crypt::AlphabetLetter</code> in the alphabet</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#finalize%21-instance-method" class="signature"><strong>#finalize!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#inspect%28io%3AIO%29-instance-method" class="signature"><strong>#inspect</strong>(io : IO)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#join%28delimeter%3AString%3D%26quot%3B%26quot%3B%29-instance-method" class="signature"><strong>#join</strong>(delimeter : String = <span class="s">&quot;&quot;</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reverse-instance-method" class="signature"><strong>#reverse</strong></a>
+        
+          <div class="summary"><p>Returns an alphabet with every character of this reversed</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reverse%21-instance-method" class="signature"><strong>#reverse!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shift%28shift%3AInt%29-instance-method" class="signature"><strong>#shift</strong>(shift : Int)</a>
+        
+          <div class="summary"><p>Shifts an alphabet <code><a href="../Crypt/Alphabet.html#shift%28shift%3AInt%29-instance-method">#shift</a></code> to the left</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shift%21%28shift%3AInt%29-instance-method" class="signature"><strong>#shift!</strong>(shift : Int)</a>
+        
+          <div class="summary"><p>Transforms the cipher to become the  shifted of <code><a href="../Crypt/Alphabet.html#shift%28shift%3AInt%29-instance-method">#shift</a></code> version of itself, see <code><a href="../Crypt/Alphabet.html#shift%28shift%3AInt%29-instance-method">#shift</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size-instance-method" class="signature"><strong>#size</strong></a>
+        
+          <div class="summary"><p>Returns the amount of letters in the alphabet</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_s%28io%3AIO%29-instance-method" class="signature"><strong>#to_s</strong>(io : IO)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#uniq%28case_sensitive%3F%3ABool%3D%40case_sensitive%2C%2A%2Aopts%29-instance-method" class="signature"><strong>#uniq</strong>(case_sensitive? : Bool = @case_sensitive, **opts)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="default:Alphabet-class-method">
+      <div class="signature">
+        
+        def self.<strong>default</strong> : <a href="../Crypt/Alphabet.html">Alphabet</a>
+
+        <a class="method-permalink" href="#default%3AAlphabet-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Used in the <code><a href="../Crypt/Ciphers.html">Ciphers</a></code>-module
+Change to whatever you'd like</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(alpha:Alphabet,**opts)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(alpha : <a href="../Crypt/Alphabet.html">Alphabet</a>, **opts)
+
+        <a class="method-permalink" href="#new%28alpha%3AAlphabet%2C%2A%2Aopts%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Passes alpha.to_s and **opts to <code>Alphabet.new(letters: String, *)</code></p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet.cr#L48" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(letters:String,*,case_sensitive?:Bool=false,final?:Bool=false)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(letters : <a href="../String.html">String</a>, *, case_sensitive? : Bool = <span class="n">false</span>, final? : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#new%28letters%3AString%2C%2A%2Ccase_sensitive%3F%3ABool%3Dfalse%2Cfinal%3F%3ABool%3Dfalse%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Creates an alphabet with the characters of letters</p>
+
+<pre><code><span class="t">Alphabet</span>.<span class="k">new</span> <span class="s">&quot;hello fish&quot;</span> <span class="c"># =&gt; #&lt;Crypt::Alphabet:&quot;HELLO FISH&quot;&gt;</span>
+<span class="t">Alphabet</span>.<span class="k">new</span> <span class="s">&quot;Hello Fish&quot;</span>, case_sensitive?: <span class="n">true</span> <span class="c"># =&gt; #&lt;Crypt::Alphabet:&quot;hello fish&quot;&gt;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(letters:Array(Char),*,case_sensitive?:Bool=false,final?:Bool=false)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(letters : Array(Char), *, case_sensitive? : Bool = <span class="n">false</span>, final? : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#new%28letters%3AArray%28Char%29%2C%2A%2Ccase_sensitive%3F%3ABool%3Dfalse%2Cfinal%3F%3ABool%3Dfalse%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Same as `Alphabet.initialize(letters : String)</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet.cr#L34" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shift(initial:Alphabet,shift:Int,case_sensitive?:Bool=initial.case_sensitive?,**opts):Alphabet-class-method">
+      <div class="signature">
+        
+        def self.<strong>shift</strong>(initial : <a href="../Crypt/Alphabet.html">Alphabet</a>, shift : Int, case_sensitive? : Bool = initial.case_sensitive?, **opts) : <a href="../Crypt/Alphabet.html">Alphabet</a>
+
+        <a class="method-permalink" href="#shift%28initial%3AAlphabet%2Cshift%3AInt%2Ccase_sensitive%3F%3ABool%3Dinitial.case_sensitive%3F%2C%2A%2Aopts%29%3AAlphabet-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns an alphabet that is a shift by <code><a href="../Crypt/Alphabet.html#shift%28shift%3AInt%29-instance-method">#shift</a></code> of <code>initial</code></p>
+
+<p><code>opts</code> are passed to the initialization of the shifted alphabet,
+the new alphabet has by default the same case sensitivity as the initial alphabet</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet.cr#L56" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Class Method Detail</h2>
+  
+    <div class="entry-detail" id="default=(default:Alphabet)-class-method">
+      <div class="signature">
+        
+        def self.<strong>default=</strong>(default : <a href="../Crypt/Alphabet.html">Alphabet</a>)
+
+        <a class="method-permalink" href="#default%3D%28default%3AAlphabet%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Used in the <code><a href="../Crypt/Ciphers.html">Ciphers</a></code>-module
+Change to whatever you'd like</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="**(string:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>**</strong>(string : <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#%2A%2A%28string%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L63" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="**(other:Alphabet)-instance-method">
+      <div class="signature">
+        
+        def <strong>**</strong>(other : <a href="../Crypt/Alphabet.html">Alphabet</a>)
+
+        <a class="method-permalink" href="#%2A%2A%28other%3AAlphabet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L59" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="-(string:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong>(string : <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#-%28string%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L72" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="-(other:Alphabet)-instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong>(other : <a href="../Crypt/Alphabet.html">Alphabet</a>)
+
+        <a class="method-permalink" href="#-%28other%3AAlphabet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L68" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&lt;&lt;(string:String)-instance-method">
+      <div class="signature">
+        
+        def <strong><<</strong>(string : <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#%3C%3C%28string%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L47" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&lt;&lt;(other:Alphabet)-instance-method">
+      <div class="signature">
+        
+        def <strong><<</strong>(other : <a href="../Crypt/Alphabet.html">Alphabet</a>)
+
+        <a class="method-permalink" href="#%3C%3C%28other%3AAlphabet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L43" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="==(other:Alphabet)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(other : <a href="../Crypt/Alphabet.html">Alphabet</a>)
+
+        <a class="method-permalink" href="#%3D%3D%28other%3AAlphabet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L35" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="==(string:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(string : <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#%3D%3D%28string%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L39" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&gt;&gt;(string:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>>></strong>(string : <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#%3E%3E%28string%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L55" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&gt;&gt;(other:Alphabet)-instance-method">
+      <div class="signature">
+        
+        def <strong>>></strong>(other : <a href="../Crypt/Alphabet.html">Alphabet</a>)
+
+        <a class="method-permalink" href="#%3E%3E%28other%3AAlphabet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L51" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[](index:Char|Int,upcase?:Bool?=nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]</strong>(index : Char | Int, upcase? : Bool? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#%5B%5D%28index%3AChar%7CInt%2Cupcase%3F%3ABool%3F%3Dnil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L3" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]?(index:Char|Int,upcase?:Bool?=nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]?</strong>(index : Char | Int, upcase? : Bool? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#%5B%5D%3F%28index%3AChar%7CInt%2Cupcase%3F%3ABool%3F%3Dnil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operators.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="case_sensitive?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>case_sensitive?</strong> : Bool
+
+        <a class="method-permalink" href="#case_sensitive%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="contains?(char:Char)-instance-method">
+      <div class="signature">
+        
+        def <strong>contains?</strong>(char : Char)
+
+        <a class="method-permalink" href="#contains%3F%28char%3AChar%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operations.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each(&amp;block)-instance-method">
+      <div class="signature">
+        
+        def <strong>each</strong>(&block)
+
+        <a class="method-permalink" href="#each%28%26block%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Yields each <code>Crypt::AlphabetLetter</code> in the alphabet</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operations.cr#L4" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="finalize!-instance-method">
+      <div class="signature">
+        
+        def <strong>finalize!</strong>
+
+        <a class="method-permalink" href="#finalize%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/transformations.cr#L26" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="inspect(io:IO)-instance-method">
+      <div class="signature">
+        
+        def <strong>inspect</strong>(io : IO)
+
+        <a class="method-permalink" href="#inspect%28io%3AIO%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operations.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="join(delimeter:String=&amp;quot;&amp;quot;)-instance-method">
+      <div class="signature">
+        
+        def <strong>join</strong>(delimeter : <a href="../String.html">String</a> = <span class="s">&quot;&quot;</span>)
+
+        <a class="method-permalink" href="#join%28delimeter%3AString%3D%26quot%3B%26quot%3B%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operations.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reverse-instance-method">
+      <div class="signature">
+        
+        def <strong>reverse</strong>
+
+        <a class="method-permalink" href="#reverse-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns an alphabet with every character of this reversed</p>
+
+<pre><code>alphabet(<span class="s">&quot;1234&quot;</span>).reverse <span class="c"># =&gt; #&lt;Crypt::Alphabet:&quot;4321&quot;&gt;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/transformations.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reverse!-instance-method">
+      <div class="signature">
+        
+        def <strong>reverse!</strong>
+
+        <a class="method-permalink" href="#reverse%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/transformations.cr#L37" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shift(shift:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>shift</strong>(shift : Int)
+
+        <a class="method-permalink" href="#shift%28shift%3AInt%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Shifts an alphabet <code><a href="../Crypt/Alphabet.html#shift%28shift%3AInt%29-instance-method">#shift</a></code> to the left</p>
+
+<pre><code>alphabet(<span class="s">&quot;1234567&quot;</span>).shift <span class="n">3</span> <span class="c"># =&gt; #&lt;Crypt::Alphabet:&quot;4567123&quot;&gt;</span>
+alphabet(<span class="s">&quot;Hello&quot;</span>, case_sensitive?: <span class="n">true</span>).shift <span class="n">1</span> <span class="c"># =&gt; #&lt;Crypt::Alphabet:&quot;elloH&quot;&gt;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/transformations.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shift!(shift:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>shift!</strong>(shift : Int)
+
+        <a class="method-permalink" href="#shift%21%28shift%3AInt%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Transforms the cipher to become the 
+shifted of <code><a href="../Crypt/Alphabet.html#shift%28shift%3AInt%29-instance-method">#shift</a></code> version of itself, see <code><a href="../Crypt/Alphabet.html#shift%28shift%3AInt%29-instance-method">#shift</a></code></p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/transformations.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size-instance-method">
+      <div class="signature">
+        
+        def <strong>size</strong>
+
+        <a class="method-permalink" href="#size-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the amount of letters in the alphabet</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operations.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_s(io:IO)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_s</strong>(io : IO)
+
+        <a class="method-permalink" href="#to_s%28io%3AIO%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operations.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="uniq(case_sensitive?:Bool=@case_sensitive,**opts)-instance-method">
+      <div class="signature">
+        
+        def <strong>uniq</strong>(case_sensitive? : Bool = @case_sensitive, **opts)
+
+        <a class="method-permalink" href="#uniq%28case_sensitive%3F%3ABool%3D%40case_sensitive%2C%2A%2Aopts%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/Jens0512/crypt/blob/bc773bbb551e4d417adfd39e9966faa4506a40da/src/crypt/alphabet/operations.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
